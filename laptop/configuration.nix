@@ -83,9 +83,14 @@
     # media-session.enable = true;
   };
 
-  # set zsh as default shell
+  # Set zsh as default shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
+
+  # Enable home-manager
+  environment.systemPackages = with pkgs; [
+    home-manager
+  ];
 
   # Defines my user account
   # (Don't forget to set a password with `passwd`)
@@ -96,4 +101,7 @@
   };
 
   system.stateVersion = "24.05";
+
+  # Enable flakes and nix command
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
