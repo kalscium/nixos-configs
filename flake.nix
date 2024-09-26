@@ -27,7 +27,10 @@
   outputs = { self, nixpkgs, nix-on-droid, home-manager, dots, ... }@inputs: {
     # phone configurations
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
-      pkgs = import nixpkgs { system = "aarch64-linux"; };
+      pkgs = import nixpkgs {
+        system = "aarch64-linux";
+        allowUnfree = true;
+      };
       extraSpecialArgs = { inherit inputs dots; };
       modules = [ ./phone.nix ];
     };

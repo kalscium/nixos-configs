@@ -17,7 +17,7 @@
         ./git.nix
         # use my home-manager dots
         dots.common
-        dots.terminal
+        dots.terminal.default
         dots.terminal.zsh.user
       ];
     };

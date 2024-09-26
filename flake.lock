@@ -38,11 +38,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1727338607,
-        "narHash": "sha256-kSbGVNKpTPDEM3xEs8h+2VD1FHYF49i4KFAfCschUMU=",
+        "lastModified": 1727340579,
+        "narHash": "sha256-RrpY0d4r6V54EkozWpnCHwU9yjNhR0lukq2emOtrfOA=",
         "owner": "kalscium",
         "repo": "dotfiles",
-        "rev": "39475caf6b22fef0bf908d61848b61b6a6634edd",
+        "rev": "fb1cebbe60b611668c109d7dee74989a279378df",
         "type": "github"
       },
       "original": {
