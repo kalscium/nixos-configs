@@ -5,7 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     # my home-manager dots
-    dots.url = "github:kalscium/dotfiles";
+    # dots.url = "github:kalscium/dotfiles";
+    dots.url = "path:/home/kalscium/Github/dotfiles";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -24,7 +25,7 @@
     hyprlock.url = "github:hyprwm/hyprlock";
   };
 
-  outputs = { self, nixpkgs, nix-on-droid, home-manager, dots, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-on-droid, home-manager, hyprland, dots, ... }@inputs: {
     # phone configurations
     nixOnDroidConfigurations.default = nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import nixpkgs {
@@ -33,6 +34,26 @@
       };
       extraSpecialArgs = { inherit inputs dots; };
       modules = [ ./phone.nix ];
+    };
+
+    # NixOS Configurations
+    nixosConfigurations =
+    let
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
+    in {
+      # For my default system
+      kalnix = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs hyprland pkgs; };
+        modules = [
+          hyprland.nixosModules.default
+          home-manager.nixosModules.home-manager
+          dots.services.default
+          ./laptop/configuration.nix
+        ];
+      };
     };
 
     # home-manager

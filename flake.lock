@@ -38,17 +38,14 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1727340579,
-        "narHash": "sha256-RrpY0d4r6V54EkozWpnCHwU9yjNhR0lukq2emOtrfOA=",
-        "owner": "kalscium",
-        "repo": "dotfiles",
-        "rev": "fb1cebbe60b611668c109d7dee74989a279378df",
-        "type": "github"
+        "lastModified": 1727350435,
+        "narHash": "sha256-Y4jP84vppaoZ64wgccsB+7mFjsz07wEdunzHTZX9Y7o=",
+        "path": "/home/kalscium/Github/dotfiles",
+        "type": "path"
       },
       "original": {
-        "owner": "kalscium",
-        "repo": "dotfiles",
-        "type": "github"
+        "path": "/home/kalscium/Github/dotfiles",
+        "type": "path"
       }
     },
     "home-manager": {
@@ -58,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727246346,
-        "narHash": "sha256-TcUaKtya339Asu+g6KTJ8h7KiKcKXKp2V+At+7tksyY=",
+        "lastModified": 1727346017,
+        "narHash": "sha256-z7OCFXXxIseJhEHiCkkUOkYxD9jtLU8Kf5Q9WC0SjJ8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1e22ef1518fb175d762006f9cae7f6312b8caedb",
+        "rev": "c124568e1054a62c20fbe036155cc99237633327",
         "type": "github"
       },
       "original": {
@@ -133,11 +130,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1727305730,
-        "narHash": "sha256-hnlTCOPCWzQIIIz+VUzv0yql36lBqbJeST1zETzDcUg=",
+        "lastModified": 1727345453,
+        "narHash": "sha256-ItNh3DdCphj5U96cDT+Rdf19vYi8TfVOwikPD46ZW4E=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "b1ad2d806634edff656cb5ddc9850ae2c73324e8",
+        "rev": "caaa9b11e4763ed0367f81bf97ceaad5175806fc",
         "type": "github"
       },
       "original": {
