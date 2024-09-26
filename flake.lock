@@ -38,8 +38,8 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1727356937,
-        "narHash": "sha256-RVa2RDTkYYQBO4+WarQ7W7Re9rVnAVfmCM4C74gNCvI=",
+        "lastModified": 1727361218,
+        "narHash": "sha256-WAdhwmzVWMgs1MkEdMEo48NOGpznw08z0wnLclzJ/og=",
         "path": "/home/kalscium/Github/dotfiles",
         "type": "path"
       },

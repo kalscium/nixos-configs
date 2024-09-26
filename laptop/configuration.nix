@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, hyprland, ... }:
+let
+  hyprland-pkgs = hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   imports = [
     # Include the results of the hardware scan
@@ -32,6 +35,27 @@
     hostName = "kalnix"; # Defines your hostname
     # wireless.enable = true; # Enables wireless support via `wpa_supplicant`
     networkmanager.enable = true; # Enables networking (like wifi)
+  };
+
+  
+  # Some extra OpenGL configs
+  hardware.nvidia.modesetting.enable = true;
+  hardware.graphics = {
+    enable = true;
+
+    package = hyprland-pkgs.mesa.drivers;
+    package32 = hyprland-pkgs.pkgsi686Linux.mesa.drivers;
+
+    extraPackages = with hyprland-pkgs; [
+      # OpenCL
+      rocmPackages.clr.icd
+      amdvlk
+    ];
+
+    # For 32bit apps
+    extraPackages32 = with hyprland-pkgs; [
+      driversi686Linux.amdvlk
+    ];
   };
 
   # Enable bluetooth
@@ -104,4 +128,9 @@
 
   # Enable flakes and nix command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Installed fonts
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+  ];
 }
