@@ -14,6 +14,7 @@
     useGlobalPkgs = true;
     config = {
       imports = [
+        ./git.nix
         # use my home-manager dots
         dots.common
         dots.terminal
