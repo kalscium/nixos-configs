@@ -130,6 +130,7 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Installed fonts
+  fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     jetbrains-mono
   ];
