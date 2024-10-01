@@ -58,6 +58,15 @@ in
     ];
   };
 
+  # Enable Nix LD
+  programs.nix-ld = {
+    enable = true;
+    package = pkgs.nix-ld-rs;
+    libraries = with pkgs; [
+      stdenv.cc.cc
+    ];
+  };
+
   # Enable bluetooth
   hardware.bluetooth = {
     enable = true;
@@ -134,4 +143,12 @@ in
   fonts.packages = with pkgs; [
     jetbrains-mono
   ];
+
+  # Environmental Variables
+  environment.variables = {
+    PATH = [
+      "$HOME/.cargo/bin"
+      "$HOME/.local/bin"
+    ];
+  };
 }
