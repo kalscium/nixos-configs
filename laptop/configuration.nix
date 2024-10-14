@@ -142,6 +142,10 @@ in
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     jetbrains-mono
+
+    # other languages
+    wqy_microhei # chinese
+    hachimarupop # japanese
   ];
 
   # Environmental Variables
