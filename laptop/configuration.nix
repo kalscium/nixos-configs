@@ -43,8 +43,8 @@ in
   hardware.graphics = {
     enable = true;
 
-    package = hyprland-pkgs.mesa.drivers;
-    package32 = hyprland-pkgs.pkgsi686Linux.mesa.drivers;
+    package = hyprland-pkgs.mesa;
+    package32 = hyprland-pkgs.pkgsi686Linux.mesa;
 
     extraPackages = with hyprland-pkgs; [
       # OpenCL
@@ -101,7 +101,7 @@ in
   };
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
