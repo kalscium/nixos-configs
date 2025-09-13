@@ -1,4 +1,4 @@
-{ pkgs, hyprland, ... }:
+{ config, pkgs, hyprland, ... }:
 let
   hyprland-pkgs = hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
@@ -7,6 +7,13 @@ in
     # Include the results of the hardware scan
     ./hardware-configuration.nix
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    # dedicatedServer.openFirewall = true;
+    # localNetworkGameTransfers = true;
+  };
 
   # Bootloader
   boot.loader = {
@@ -23,8 +30,16 @@ in
     };
   };
 
+  # Enable usage of the ASUS external monitor
+  boot.extraModulePackages = [ config.boot.kernelPackages.evdi ];
+  services.xserver.videoDrivers = [ "displaylink" ];
+  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
+
   # Enable the AMD graphics card driver
-  boot.initrd.kernelModules = [ "amdgpu"];
+  boot.initrd.kernelModules = [
+    "amdgpu"
+    "evdi" # for asus external monitor
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -125,6 +140,7 @@ in
   # Enable home-manager
   environment.systemPackages = with pkgs; [
     home-manager
+    displaylink # for asus external monitor
   ];
 
   # Defines my user account
