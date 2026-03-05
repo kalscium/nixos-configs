@@ -35,9 +35,8 @@ in
   services.xserver.videoDrivers = [ "displaylink" ];
   systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 
-  # Enable the AMD graphics card driver
   boot.initrd.kernelModules = [
-    "amdgpu"
+    "amdgpu" # enable the AMD graphics card driver
     "evdi" # for asus external monitor
   ];
 
@@ -64,19 +63,13 @@ in
     extraPackages = with hyprland-pkgs; [
       # OpenCL
       rocmPackages.clr.icd
-      amdvlk
-    ];
-
-    # For 32bit apps
-    extraPackages32 = with hyprland-pkgs; [
-      driversi686Linux.amdvlk
     ];
   };
 
   # Enable Nix LD
   programs.nix-ld = {
     enable = true;
-    package = pkgs.nix-ld-rs;
+    package = pkgs.nix-ld;
     libraries = with pkgs; [
       stdenv.cc.cc
     ];
